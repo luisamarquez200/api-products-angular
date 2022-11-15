@@ -1,0 +1,234 @@
+aside {
+  background-color: $white;
+  box-shadow: $shadow1;
+  min-height: 100vh;
+  padding: 0.7rem;
+  position: fixed;
+  transition: all 1s;
+  width: $menu-width;
+  z-index: 4;
+
+  .lnr-menu {
+    color: $gray4;
+    cursor: pointer;
+    float: right;
+    font-size: 20px;
+  }
+  .menu-head {
+    a:hover {
+      border-bottom: none;
+    }
+    i {
+      transform: rotate(180deg);
+      font-size: 20px;
+    }
+  }
+
+  nav {
+    a {
+      border-bottom: 0 !important;
+      img {
+        width: 55%;
+      }
+    }
+
+    .nav-menu {
+      color: $gray3;
+      list-style: none;
+      margin: 10px 5px;
+      padding: 0;
+      transition: all 0.7s;
+
+      li {
+        cursor: pointer;
+        margin: 6px 0;
+        outline: 0;
+        position: relative;
+        p {
+          align-items: center;
+          border-radius: $border1;
+          display: flex;
+          padding: 5px 10px;
+          padding-right: 0;
+
+          i {
+            font-size: 1.5rem;
+            margin-right: 5px;
+          }
+
+          span {
+            transition: all 0.1s;
+            opacity: 1;
+            visibility: visible;
+          }
+
+          .icon-drop {
+            margin-left: 7px;
+          }
+        }
+        ul {
+          list-style: none;
+          max-height: 0;
+          overflow: hidden;
+          padding-left: 1.8rem;
+          transition: all 0.3s;
+
+          li {
+            transition: all 0.7s;
+            margin: 6px 0;
+            margin-bottom: 9px;
+            padding-left: 0.8rem;
+            position: relative;
+
+            &:before {
+              background-color: $gray3;
+              border-radius: 50%;
+              content: "";
+              left: 0;
+              height: 3px;
+              position: absolute;
+              top: 8px;
+              width: 3px;
+            }
+          }
+        }
+
+        &.selected,
+        &.hover {
+          p {
+            background-color: $gray1;
+            color: $primary-color;
+
+            i {
+              color: $secondary-color;
+            }
+            span {
+              color: $primary-color;
+              font-weight: bold;
+            }
+          }
+        }
+
+        .open-submenu {
+          transition: all 0.7s;
+          float: right;
+        }
+
+        &.has-children {
+          p {
+            .la-angle-down {
+              transform: rotate(0deg);
+              transition: 0.3s;
+            }
+          }
+          ul {
+            transform: translateY(0%);
+          }
+          &.selected {
+            background-color: initial;
+            p {
+              background-color: $gray1;
+              .la-angle-down {
+                transform: rotate(-180deg);
+                transition: 0.3s;
+              }
+            }
+
+            ul {
+              transform: translateY(6%);
+              transition: 500ms;
+              max-height: initial;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .social-media {
+    background-color: #fff;
+    bottom: 0;
+    left: 0;
+    padding: 15px 10px;
+    position: fixed;
+    text-align: center;
+    width: $menu-width;
+
+    a {
+      color: $primary-color;
+      font-size: 24px;
+      margin: 0 5px;
+      text-decoration: none;
+    }
+  }
+
+  &.aside-xs {
+    width: $menu-width-xs;
+    transition: all 0.7s;
+    p {
+      display: none;
+    }
+
+    .la-bars {
+      margin-left: 8px;
+    }
+
+    nav {
+      img {
+        width: 100%;
+      }
+      .nav-menu {
+        margin-left: 0;
+        margin-right: 0;
+        li {
+          padding: 0;
+
+          ul {
+            //max-height: 0 !important;
+            padding-left: 0;
+            transition: all 0.3s;
+
+            li {
+              display: flex;
+              justify-content: center;
+
+              i {
+                display: block !important;
+                font-size: 1.2rem;
+              }
+
+              &:before {
+                content: unset;
+              }
+            }
+          }
+
+          .la-angle-down, .la-angle-up {
+            display: none !important;
+          }
+
+          p {
+            justify-content: center;
+            padding: 5px 3px;
+          }
+
+          i {
+            font-size: 1.5rem;
+            margin-left: 0;
+            margin-right: 0;
+          }
+          span {
+            visibility: hidden;
+            opacity: 0;
+            width: 0;
+            height: 0;
+          }
+        }
+      }
+    }
+
+    .social-media {
+      display: none;
+    }
+  }
+}

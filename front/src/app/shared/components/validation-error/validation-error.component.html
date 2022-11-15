@@ -1,0 +1,8 @@
+<div class="input-error" 
+	[class.opened]="form.get(field).errors && form.get(field).touched">
+	<span class="lnr lnr-warning"></span>
+	<p *ngIf="form.get(field).hasError('required')">{{'Campo requerido'}}</p>
+	<p *ngIf="form.get(field).hasError('minlength')">{{'Debe ser mayor a 0'}}</p>
+	<p *ngIf="form.get(field).hasError('maxlength')">{{'Máximo 20 caracteres'}}</p>
+	<p *ngIf="form.get(field).hasError('pattern')">{{'Sin caracteres y mayor a 0'}}</p>
+</div>

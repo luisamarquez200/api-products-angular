@@ -1,0 +1,136 @@
+@include media-breakpoint-down(sm) {
+  #bg-login {
+    .column-1 {
+      height: 80vh;
+      width: 100%;
+    }
+
+    .column-2 {
+      height: 20vh;
+      width: 100%;
+      top: 80%;
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+}
+
+@include media-breakpoint-up(lg) {
+  #not-found-container {
+    .row {
+      .circle {
+        border-radius: 50%;
+        height: 127vh;
+        position: fixed;
+        width: 61%;
+        left: 19%;
+        bottom: -11%;
+      }
+      .title-container {
+        position: sticky;
+        margin-top: 17%;
+        .not-found-image {
+          background-image: url("../../assets/images/404/grafico-404.svg");
+          background-size: contain;
+        }
+        h3 {
+          font-size: 2.25rem;
+        }
+
+      }
+      .not-found-information {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        p {
+          width: 34%;
+          font-size: 16px;
+        }
+
+      }
+      .btn-not-found {
+        font-size: 15px;
+        height: 35px;
+      }
+
+    }
+
+  }
+
+}
+
+@include media-breakpoint-down(lg) {
+}
+
+@include media-breakpoint-up(xl) {
+  #not-found-container {
+    .row {
+      .circle {
+        border-radius: 50%;
+        height: 127vh;
+        position: fixed;
+        width: 61%;
+        left: 19%;
+        bottom: -11%;
+      }
+      .title-container {
+        position: sticky;
+        margin-top: 17%;
+        h3 {
+          font-size: 3.125rem;
+        }
+      }
+
+      .not-found-information {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        p {
+          width: 34%;
+          font-size: 1.25rem;
+        }
+
+      }
+      .btn-not-found {
+        font-size: 1.25rem;
+        height: 3.125rem;
+      }
+    }
+  }
+
+}
+
+@include media-breakpoint-down(xl) {
+}
+
+@include media-breakpoint-down(xxl) {
+}
+
+@include media-breakpoint-up(sm) {
+  .container-fluid.container-table {
+    margin: 0px;
+    padding: 0px;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  #bg-login {
+    .site-data {
+      min-height: 100vh;
+    }
+  }
+  #not-found-container {
+    padding-left: 0;
+    padding-right: 0;
+    .row {
+      .title-container {
+        left: 0;
+        .not-found-image {
+          height: 20vh;
+        }
+      }
+    }
+
+  }
+}

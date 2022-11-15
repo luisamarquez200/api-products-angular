@@ -1,0 +1,234 @@
+
+.container-drawer {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  transition: all ease-in-out .4s;
+
+  &--menu {
+    transform: translateX(-100%);
+  }
+
+  &--user {
+    transform: translateX(100%);
+
+    .info-user {
+      &__avatar {
+        background: $primary-color;
+        border-radius: $border3;
+      }
+    }
+  }
+
+  .drawer {
+    z-index: 10;
+    position: relative;
+    padding: 20px 20px 20px 25px;
+    width: 84.5%;
+    box-shadow: $shadow1;
+
+    &-user {
+      float: right;
+      right: 0;
+    }
+
+    .la-long-arrow-alt-left, .la-long-arrow-alt-right {
+      background: $gray1;
+      border-radius: 5px;
+      padding: 3.5px;
+      font-size: 1.5rem;
+      color: #2D2D2D;
+    }
+    .item-menu-text {
+      font-size: 16px;
+      font-family: "Poppins-regular";
+      color: #989898;
+      font-weight: 400;
+      margin-left: 15px;
+    }
+
+    .items-menu {
+      list-style: none;
+      padding: 0;
+      color: $gray3;
+      transition: all 0.7s;
+      i {
+        font-size: 1.5rem;
+        margin-left: 0px;
+        color: #DBDBDB;
+      }
+      li {
+        cursor: pointer;
+        margin: 6px 0;
+        outline: 0;
+        position: relative;
+        p {
+          align-items: center;
+          border-radius: $border1;
+          display: flex;
+          padding-right: 0;
+
+          i {
+            font-size: 1.5rem;
+            margin-right: 5px;
+          }
+
+          span {
+            transition: all 0.1s;
+            opacity: 1;
+            visibility: visible;
+          }
+
+          .icon-drop {
+            margin-left: 7px;
+          }
+        }
+        ul {
+          list-style: none;
+          max-height: 0;
+          overflow: hidden;
+          padding-left: 1.8rem;
+          transition: all 0.3s;
+
+          li {
+            transition: all 0.7s;
+            margin: 6px 0;
+            margin-bottom: 9px;
+            padding-left: 0.8rem;
+            position: relative;
+
+            &:before {
+              background-color: $gray3;
+              border-radius: 50%;
+              content: "";
+              left: 0;
+              height: 3px;
+              position: absolute;
+              top: 8px;
+              width: 3px;
+            }
+          }
+        }
+
+        &.selected,
+        &.hover {
+          p {
+            background-color: $gray1;
+            color: $primary-color;
+
+            i {
+              color: $secondary-color;
+            }
+            span {
+              color: $primary-color;
+              font-weight: bold;
+            }
+          }
+        }
+
+        .open-submenu {
+          transition: all 0.7s;
+          float: right;
+        }
+
+        &.has-children {
+          p {
+            .la-angle-down {
+              transform: rotate(0deg);
+              transition: 0.3s;
+            }
+          }
+          ul {
+            transform: translateY(0%);
+          }
+          &.selected {
+            background-color: initial;
+            p {
+              background-color: $gray1;
+              .la-angle-down {
+                transform: rotate(-180deg);
+                transition: 0.3s;
+              }
+            }
+
+            ul {
+              transform: translateY(6%);
+              transition: 500ms;
+              max-height: initial;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .drawer-overlay {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+  }
+
+  &.active {
+    transform: translateX(0);
+  }
+}
+
+
+
+
+@include media-breakpoint-down(sm)  {
+  .header-top {
+    background-color: #fff;
+    box-shadow: $shadow1;
+    padding: 15px 25px;
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+
+    .bx-menu-alt-right {
+      font-size: 1.5rem;
+      color: #4C4C9F;
+      transform: rotate(180deg);
+    }
+
+    nav{
+      .nav-menu {
+        div {
+          display: flex;
+          align-items: center;
+        }
+        i {
+          font-size: 1.5rem;
+          margin-left: 0px;
+          color: #4C4C9F;
+        }
+        span {
+          color: $secondary-color;
+          font-family: 'Poppins-regular';
+          font-size: 16px;
+        }
+      }
+    }
+
+    .options {
+      .la-bell {
+        background: $gray1;
+        border-radius: 5px;
+        padding: 6px;
+        font-size: 1.2rem;
+        color: #2D2D2D;
+      }
+      .la-user {
+        background: $secondary-color;
+        border-radius: 5px;
+        padding: 6px;
+        font-size: 1.2rem;
+        color: $white;
+        margin-left: 10px;
+      }
+    }
+  }
+}

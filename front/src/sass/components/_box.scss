@@ -1,0 +1,101 @@
+.box {
+
+	background-color: $white;
+	border-radius: $border3;
+	//overflow: hidden;
+  &--role {
+    margin: 15px;
+  }
+	&--permissions {
+
+		&__permission {
+			align-items: center;
+			border-radius: $border1;
+			cursor: pointer;
+			display: flex;
+			justify-content: space-between;
+		  padding: 4px 10px;
+		}
+		&__list {
+			display: none;
+			list-style: none;
+			margin: 5px 1.5rem;
+			padding: 5px 0;
+
+			li {
+				display: flex;
+				justify-content: space-between;
+				position: relative;
+
+				&:before {
+				    background-color: $gray2;
+				    bottom: 5px;
+					content: "";
+				    height: 1px;
+				    left: 5%;
+				    position: absolute;
+				    width: 92%;
+				}
+
+				.permission-name, .onoffswitch {
+					background-color: $base-color;
+				    z-index: 1;
+				}
+				.permission-name { padding-right: 5px; }
+			}
+		}
+
+		.active {
+			.box--permissions__permission {
+				  background-color: $gray1;
+			    color: $gray4;
+
+          i {
+            transform: rotate(180deg);
+          }
+			}
+			.box--permissions__list {
+				display: block;
+        transform-origin: top center;
+        animation: rotateX 0.6s ease-in-out forwards;
+			}
+		}
+	}
+
+	&--pagination {
+		align-items: center;
+		display: flex;
+		justify-content: space-between;
+
+		span {
+			width: 7rem;
+    	white-space: nowrap;
+		}
+	}
+}
+
+@keyframes rotateX {
+  0% {
+    opacity: 0;
+    transform: rotateX(-90deg);
+  }
+  50% {
+    transform: rotateX(-20deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateX(0deg);
+  }
+}
+@include media-breakpoint-down(md) {
+  .box--pagination {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    span {
+      width: unset;
+      white-space: nowrap;
+    }
+  }
+}

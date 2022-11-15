@@ -1,0 +1,78 @@
+<div class="info">
+    <div class="row align-items-center">
+        <div class="col-7 col-lg-9 d-none d-md-block">
+            <div class="d-flex align-items-center">
+                <div class="d-flex align-items-center b-right mr-4 pr-4">
+                    <i class="las la-user color-primary fs-big mr-3"></i>
+                    <p class="f-subtitle color-primary fs-normal nowrap">Productos</p>
+                </div>
+                <p class="color-gray3 x-small">
+                    Estas son todos los productos registrados en la plataforma, puedes
+                    crear, editar, consultar información o eliminar.
+                </p>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="pr-md-4">
+                <div class="row d-flex justify-content-md-end justify-content-between align-items-center">
+                    <button class="btn btn-primary btn--icon" routerLink="/nuevo">
+                        <i class="las la-plus fs-normal mr-2 text-white"></i> Nuevo producto
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="box p-0">
+        <div class="row my-0">
+            <div class="col-12">
+                <div id="filter-items" class="row px-4 py-3 justify-content-between align-items-center">
+                </div>
+            </div>
+            <div class="col-12 container-table px-4">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead class="p-semibold">
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Tipo de producto</th>
+                                <th>Descripción</th>
+                                <th>Precio</th>
+                                <th>Opciones</th>
+                            </tr>
+                        </thead>
+                        <tbody class="c-regular">
+                            <tr *ngFor="let item of products; let i = index">
+                                <td>
+                                    {{ item.name }}
+                                </td>
+                                <td>
+                                    {{ item.type }}
+                                </td>
+                                <td>
+                                    {{ item.description }}
+                                </td>
+                                <td>
+                                    {{item.price}}
+                                </td>
+                                <td class="text-center fs-normal">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <a href="javascript:;"
+                                            class="border-0 text-decoration-none color-gray3 d-flex align-items-center justify-content-center"
+                                            (click)="deleteProduct(item._id)" title="Eliminar">
+                                            <i class="las la-trash-alt"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="no-data py-4 px-2 text-center txt-gray4 " *ngIf="products.length==0 ">
+                        No hay registro de productos
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
