@@ -26,7 +26,8 @@ export class IndexComponent implements OnInit {
   getProduct(){
     this._productService.getProducts().subscribe(data => {
       this.products = data;
-      if(this.products = []){
+      console.log(this.products)
+      if(this.products.length == 0){
         this.router.navigate(['/nuevo'])
       } 
     })
